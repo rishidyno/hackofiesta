@@ -151,3 +151,32 @@ li {
   margin-bottom: 2rem;
   font-size: 3rem;
 }
+
+
+/* HIDE RADIO */
+[type=radio] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+[type=radio] + img {
+  cursor: pointer;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked +img {
+  padding:2rem;
+  /* outline: 2px solid */
+  border: 10px solid  white;
+  border-radius: 50%;
+}
+
+.roundstart{
+  position: absolute;
+  left:43%;
+  bottom:8%;
+  
+}
