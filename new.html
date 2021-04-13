@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- <link rel="stylesheet" href="resources/CSS/style.css" /> -->
+    <link rel="stylesheet" href="resources/CSS/new-style.css" />
+    <link rel="stylesheet" href="resources/CSS/grid.css" />
+    <!--     <link rel="stylesheet" href="resources/CSS/normalize.css" /> -->
+
+    <!-- favicon code -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <title>Rock Paper Scissors Lizard Spock</title>
+  </head>
+
+  <body>
+    <header>
+      <!-- <h1>Rock &mdash; Paper &mdash; Scissors &mdash; Lizard &mdash; Spock</h1> -->
+      <h1>LET'S PLAY</h1>
+      <!-- <p class="between">(Between 1 and 20)</p> -->
+    <a href="/index.html">  <button class="btn again">Again!</button></a>
+    <a href="#">  <button class="btn round">Next Round </button></a>
+    </header>
+    <section class="details row">
+      <div class="player-name">PLAYER</div>
+      <div class="timer ">?</div>
+      <div class="bot-name">BOT</div>
+      <div class="message">ROCK BEATS SCISSORS</div>
+    </section>
+
+    <main>
+      <section class="left">
+        <img class="player-pic" src="resources/images/user.png" alt="user" />
+      </section>
+
+      <div class="player-score">0</div>
+      <div class="bot-score">0</div>
+
+      <section class="right">
+        <img class="bot-pic" src="resources/images/bot.png" alt="bot" />
+      </section>
+    </main>
+<!-- <h3>PLAYER MOVE</h3> -->
+    <footer>
+      <div class="row choice-img">
+        <button class="col span-1-of-5 box choice">
+          <img src="resources/images/rock.png" alt="rock" />
+        </button>
+
+        <button class="col span-1-of-5 box choice">
+          <img src="resources/images/paper.png " alt="paper" />
+        </button>
+        <button class="col span-1-of-5 box choice">
+          <img src="resources/images/scissors.png " alt="scissors" />
+        </button>
+
+        <button class="col span-1-of-5 box choice">
+          <img src="resources/images/lizard.png " alt="lizard" />
+        </button>
+
+        <button class="col span-1-of-5 box choice">
+          <img src="resources/images/spock.png " alt="spock" />
+        </button>
+      </div>
+    </footer>
+
+
+
+
+
+    <script src="script.js"></script>
+  </body>
+</html>
