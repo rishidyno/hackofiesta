@@ -25,41 +25,79 @@
     <main>
       <h2 class="player-name">PLAYER</h2>
       <h2 class="bot-name">BOT</h2>
+     <h2 class="start-name"> <button class="start">
+          START
+        </button></h2>
+        <h2 class="timer"> <span id="countdowntimer">5 </span></p></h2>
+
+<script type="text/javascript">
+    var timeleft = 5;
+    var downloadTimer = setInterval(function(){
+    timeleft--;
+    document.getElementById("countdowntimer").textContent = timeleft;
+    if(timeleft <= 0)
+        clearInterval(downloadTimer);
+    },1000);
+</script>
+      
+
       <section class="move-table">
         <section class="player">
-          <img src="resources/images/brain.png" alt="brain" />
+          <img
+            class="player-pic"
+            src="resources/images/brain.png"
+            alt="brain"
+          />
+          <img class="rock" src="resources/images/rock.png" alt="rock" />
+          <img class="paper" src="resources/images/paper.png" alt="paper" />
+          <img
+            class="scissors"
+            src="resources/images/scissors.png"
+            alt="scissors"
+          />
+          <img class="lizard" src="resources/images/lizard.png" alt="lizard" />
+          <img class="spock" src="resources/images/spock.png" alt="spock" />
         </section>
       </section>
       <section class="move-table">
         <section class="player">
-          <img src="resources/images/bot.png" alt="bot" />
+          <img class="bot-pic" src="resources/images/bot.png" alt="bot" />
+          <img class="rock" src="resources/images/rock.png" alt="rock" />
+          <img class="paper" src="resources/images/paper.png" alt="paper" />
+          <img
+            class="scissors"
+            src="resources/images/scissors.png"
+            alt="scissors"
+          />
+          <img class="lizard" src="resources/images/lizard.png" alt="lizard" />
+          <img class="spock" src="resources/images/spock.png" alt="spock" />
         </section>
       </section>
     </main>
     <h3>PLAYER MOVE</h3>
     <footer>
       <div class="row choice-img">
-        <button class="col span-1-of-5 box">
+        <button class="col span-1-of-5 box choice">
           <img src="resources/images/rock.png" alt="rock" />
         </button>
 
-        <button class="col span-1-of-5 box">
+        <button class="col span-1-of-5 box choice">
           <img src="resources/images/paper.png " alt="paper" />
         </button>
-        <button class="col span-1-of-5 box">
+        <button class="col span-1-of-5 box choice">
           <img src="resources/images/scissors.png " alt="scissors" />
         </button>
 
-        <button class="col span-1-of-5 box">
+        <button class="col span-1-of-5 box choice">
           <img src="resources/images/lizard.png " alt="lizard" />
         </button>
 
-        <button class="col span-1-of-5 box">
+        <button class="col span-1-of-5 box choice">
           <img src="resources/images/spock.png " alt="spock" />
         </button>
       </div>
     </footer>
 
-    <!-- <script src="resources/JS/script.js"></script> -->
+    <script src="resources/JS/script.js"></script>
   </body>
 </html>

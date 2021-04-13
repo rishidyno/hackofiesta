@@ -40,7 +40,7 @@ h1 {
 }
 h2 {
   font-size: 3rem;
-  color:#ff414d;
+  color: #ff414d;
   text-align: center;
   top: 15%;
   width: 100%;
@@ -53,7 +53,23 @@ h2 {
   position: absolute;
   left: 25%;
 }
-
+.start-name {
+  position: absolute;
+  /* left:0%; */
+}
+.start,.start:hover {
+  transform:scale(1);
+  font-family: inherit;
+  font-size: 3rem;
+  
+  cursor: pointer;
+}
+.timer {
+  position: absolute;
+  top:40%;
+  font-size: 5rem;
+  /* display: none; */
+}
 h3 {
   font-size: 2rem;
   text-align: center;
@@ -92,7 +108,7 @@ footer {
   padding-top: 2vh;
   /* padding-bottom: 2vh; */
   border-radius: 50px 50px 0 0;
-   box-shadow: 0rem -1rem 5rem rgba(0, 0, 0, 0.25);
+  box-shadow: 0rem -1rem 5rem rgba(0, 0, 0, 0.25);
 }
 
 .choice-img button {
@@ -141,4 +157,17 @@ button:hover {
   border-color: #d0d0d0;
   border-radius: 50%;
   padding: 10px;
+}
+
+.rock,
+.paper,
+.scissors,
+.lizard,
+.spock {
+  display: none;
+}
+
+.bot-pic,
+.player-pic {
+  display: inline;
 }
