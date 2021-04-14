@@ -1,80 +1,112 @@
 "use strict";
-const playerScore = document.querySelector(".player-score");
-const botScore = document.querySelector(".bot-score");
-const roundno = document.querySelector(".timer");
-let count = 1;
-let p,c;
-document
-  .querySelector(".round")
-  .addEventListener("click", function increaseRound() {
-    if (count <= 3) roundno.textContent = count;
-    count += 1;
-    botchoice();
-  });
+const playerScore = 0;
+const botScore = 0;
+const rock_btn = document.querySelector(".rock");
+const paper_btn = document.querySelector(".paper");
+const scissors_btn = document.querySelector(".scissors");
+const lizard_btn = document.querySelector(".lizard");
+const spock_btn = document.querySelector(".spock");
+const mess = document.querySelector(".message");
 
-document
-  .querySelector(".restart")
-  .addEventListener("click", function restartGame() {
-    playerScore.value = 0;
-    botScore.value = 0;
-    roundno.value = 1;
-    playerScore.textContent = 0;
-    botScore.textContent = 0;
-    roundno.textContent = 1;
-  });
-
-const playerMove = document.querySelector(".player-pic");
-const botMove = document.querySelector(".bot-pic");
-
-document
-  .querySelector(".rock")
-  .addEventListener("click", function replaceimg(p) {
-    playerMove.src = "resources/images/rock.png";
-    p = "rock";
-  });
-
-document
-  .querySelector(".paper")
-  .addEventListener("click", function replaceimg(p) {
-    playerMove.src = "resources/images/paper.png";
-    p = "paper";
-  });
-
-document
-  .querySelector(".scissors")
-  .addEventListener("click", function replaceimg(p) {
-    playerMove.src = "resources/images/scissors.png";
-    p = "scissors";
-  });
-
-document
-  .querySelector(".lizard")
-  .addEventListener("click", function replaceimg(p) {
-    playerMove.src = "resources/images/lizard.png";
-    p = "lizard";
-  });
-
-document
-  .querySelector(".spock")
-  .addEventListener("click", function replaceimg(p) {
-    playerMove.src = "resources/images/spock.png";
-    p = "spock";
-  });
-
-
-console.log(p);
-
-var choiceArr = ["rock", "paper", "scissors", "lizard", "spock"];
-function botchoice() {
-   c = choiceArr[Math.floor(Math.random() * choiceArr.length)];
-  
+function getCompChoice() {
+  const choices = ["r", "p", "s", "l", "o"];
+  return choices[Math.floor(Math.random() * 5)];
 }
 
-console.log(c);
-document.querySelector(".lock").addEventListener("click", function () {
-  if (c === "rock") botMove.src = "resources/images/rock.png";
-  else if (c === "paper") botMove.src = "resources/images/paper.png";
-  else if (c === "scissors") botMove.src = "resources/images/scissors.png";
-  else if (c === "lizard") botMove.src = "resources/images/lizard.png";
-  else if (c === "spock") botMove.src = "resources/images/spock.png";
-});
+// console.log(getCompChoice());
+
+function game(userChoice) {
+  const botChoice = getCompChoice();
+  console.log(userChoice);
+  console.log(botChoice);
+  switch (userChoice + botChoice) {
+    case "rs":
+      mess.textContent = "ROCK BEATS SCISSORS";
+      break;
+
+    case "rl":
+      mess.textContent = "ROCK BEATS LIZARD";
+      break;
+    case "po":
+      mess.textContent = "PAPER BEATS SPOCK";
+      break;
+    case "pr":
+      mess.textContent = "PAPER BEATS ROCK";
+       break;
+    case "sl":
+      mess.textContent = "SCISSORS BEATS LIZARD";
+       break;
+    case "sp":
+      mess.textContent = "SCISSORS BEATS PAPER";
+       break;
+    case "os":
+      mess.textContent = "SPOCK BEATS SCISSORS";
+       break;
+    case "or":
+      mess.textContent = "SPOCK BEATS ROCK";
+       break;
+    case "ls":
+      mess.textContent = "LIZARD BEATS SCISSORS";
+       break;
+    case "lp":
+      mess.textContent = "LIZARD BEATS PAPER";
+       
+      console.log("USER WINS");
+      break;
+    case "sr":
+      mess.textContent = "ROCK BEATS SCISSORS";
+       break;
+    case "lr":
+      mess.textContent = "ROCK BEATS LIZARD";
+       break;
+    case "op":
+      mess.textContent = "PAPER BEATS SPOCK";
+       break;
+    case "rp":
+      mess.textContent = "PAPER BEATS ROCK";
+       break;
+    case "ls":
+      mess.textContent = "SCISSORS BEATS LIZARD";
+       break;
+    case "ps":
+      mess.textContent = "SCISSORS BEATS PAPER";
+       break;
+    case "so":
+      mess.textContent = "SPOCK BEATS SCISSORS";
+       break;
+    case "ro":
+      mess.textContent = "SPOCK BEATS ROCK";
+       break;
+    case "sl":
+      mess.textContent = "LIZARD BEATS SCISSORS";
+       break;
+    case "pl":
+      mess.textContent = "LIZARD BEATS PAPER";
+      
+      console.log("COMPUTER WINS");
+      break;
+  }
+}
+
+// game("r")
+
+function main() {
+  rock_btn.addEventListener("click", function () {
+    game("r");
+    // console.log("r");
+  });
+  paper_btn.addEventListener("click", function () {
+    game("p");
+  });
+  scissors_btn.addEventListener("click", function () {
+    game("s");
+  });
+  lizard_btn.addEventListener("click", function () {
+    game("l");
+  });
+  spock_btn.addEventListener("click", function () {
+    game("o");
+  });
+}
+
+main();
