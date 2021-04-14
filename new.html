@@ -22,16 +22,17 @@
   <body>
     <header>
       <!-- <h1>Rock &mdash; Paper &mdash; Scissors &mdash; Lizard &mdash; Spock</h1> -->
-      <h1>LET'S PLAY</h1>
-      <!-- <p class="between">(Between 1 and 20)</p> -->
-    <a href="/index.html">  <button class="btn again">Restart</button></a>
-    <a href="#">  <button class="btn round">Next Round </button></a>
+      <h1 class="roundnumber">LET'S PLAY</h1>
+      
+      <button class="btn restart">Restart</button>
+      <a href="#"> <button class="btn round">Next Round</button></a>
     </header>
     <section class="details row">
       <div class="player-name">PLAYER</div>
-      <div class="timer ">?</div>
+      <div class="timer">1</div>
       <div class="bot-name">BOT</div>
-      <div class="message">ROCK BEATS SCISSORS</div>
+      <div class="message">MAKE YOUR MOVE</div>
+      <!-- <button class="btn lock">LOCK CHOICE</button> -->
     </section>
 
     <main>
@@ -39,41 +40,37 @@
         <img class="player-pic" src="resources/images/user.png" alt="user" />
       </section>
 
-      <div class="player-score">0</div>
-      <div class="bot-score">0</div>
+      <div class="player-score"><p>0</p> </div>
+      <div class="bot-score"><p>0</p></div>
 
       <section class="right">
         <img class="bot-pic" src="resources/images/bot.png" alt="bot" />
       </section>
     </main>
-<!-- <h3>PLAYER MOVE</h3> -->
+    <!-- <h3>PLAYER MOVE</h3> -->
     <footer>
       <div class="row choice-img">
-        <button class="col span-1-of-5 box choice">
+        <button class="col span-1-of-5 choice rock">
           <img src="resources/images/rock.png" alt="rock" />
         </button>
 
-        <button class="col span-1-of-5 box choice">
+        <button class="col span-1-of-5 choice paper">
           <img src="resources/images/paper.png " alt="paper" />
         </button>
-        <button class="col span-1-of-5 box choice">
+        <button class="col span-1-of-5 choice scissors">
           <img src="resources/images/scissors.png " alt="scissors" />
         </button>
 
-        <button class="col span-1-of-5 box choice">
+        <button class="col span-1-of-5 choice lizard">
           <img src="resources/images/lizard.png " alt="lizard" />
         </button>
 
-        <button class="col span-1-of-5 box choice">
+        <button class="col span-1-of-5 choice spock">
           <img src="resources/images/spock.png " alt="spock" />
         </button>
       </div>
     </footer>
 
-
-
-
-
-    <script src="script.js"></script>
+    <script src="resources/JS/script.js"></script>
   </body>
 </html>
