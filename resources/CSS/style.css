@@ -26,9 +26,7 @@ body {
   font-family: "Press Start 2P", sans-serif;
   color: #eee;
   background: black;
-  /* background: #0f0c29;
-background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
-background: linear-gradient(to right, #24243e, #302b63, #0f0c29); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
 }
 
 /* reusable */
@@ -62,20 +60,6 @@ main {
   width: 100%;
 }
 
-/* .left {
-  width: 50rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.right {
-  width: 52rem;
-  font-size: 2rem;
-}
-.front {
-  margin-top: 0;
-} */
 
 /* ELEMENTS STYLE */
 h1 {
@@ -88,18 +72,7 @@ h1 {
   transform: translate(-50%, -50%);
 }
 
-.number {
-  background: #eee;
-  color: #333;
-  font-size: 6rem;
-  width: 15rem;
-  padding: 3rem 0rem;
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 50%);
-}
+
 
 .btn {
   border: none;

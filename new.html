@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -21,15 +29,49 @@
 
   <body>
     <header>
+      <div
+        class="modal fade"
+        id="secModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="false"
+      >
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+              <h2 class="modal-title w-100 text-center">RESULT</h2>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+              Lorem ipsum dolor, sit amet consectetur 
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+              <!-- <button type="button " class="close btn w-100 text-center " data-dismiss="modal">
+                  RESTART
+                </button> -->
+
+              <a href="/roundno.html" class="w-100 text-center">
+                <button type="button " class="modalRestart">
+                  <span> Restart</span>
+                </button></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- <h1>Rock &mdash; Paper &mdash; Scissors &mdash; Lizard &mdash; Spock</h1> -->
       <h1 class="roundnumber">LET'S PLAY</h1>
-      
+
       <!-- <button class="btn restart"></button> -->
       <a href="/roundno.html"> <button class="btn restart">Restart</button></a>
     </header>
     <section class="details row">
       <div class="player-name">PLAYER</div>
-      <div class="timer">1</div>
+      <div class="timer">ROUND 1</div>
       <div class="bot-name">BOT</div>
       <div class="message">MAKE YOUR MOVE</div>
       <!-- <button class="btn lock">LOCK CHOICE</button> -->
@@ -40,8 +82,8 @@
         <img class="player-pic" src="resources/images/user.png" alt="user" />
       </section>
 
-      <div class="player-score"><p>0</p> </div>
-      <div class="bot-score"><p>0</p></div>
+      <div class="player-score"><span>0</span></div>
+      <div class="bot-score"><span>0</span></div>
 
       <section class="right">
         <img class="bot-pic" src="resources/images/bot.png" alt="bot" />
