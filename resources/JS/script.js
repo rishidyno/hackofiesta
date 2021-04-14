@@ -1,178 +1,80 @@
+"use strict";
+const playerScore = document.querySelector(".player-score");
+const botScore = document.querySelector(".bot-score");
+const roundno = document.querySelector(".timer");
+let count = 1;
+let p,c;
+document
+  .querySelector(".round")
+  .addEventListener("click", function increaseRound() {
+    if (count <= 3) roundno.textContent = count;
+    count += 1;
+    botchoice();
+  });
 
-// rules: 
-// Scissors cut Paper
-//  Paper covers Rock
-// Rock crushes Lizard
-// izard poisons Spock
-// Spock smashes Scissors
-// Scissors decapitate Lizard
-// Lizard eats Paper
-// Paper disproves Spock
-// Spock vaporizes Rock
-// Rock crushes Scissors
+document
+  .querySelector(".restart")
+  .addEventListener("click", function restartGame() {
+    playerScore.value = 0;
+    botScore.value = 0;
+    roundno.value = 1;
+    playerScore.textContent = 0;
+    botScore.textContent = 0;
+    roundno.textContent = 1;
+  });
 
-const choices = document.querySelectorAll('.choice');
-const score = document.getElementById('score');
-const result = document.getElementById('result');
-const restart = document.getElementById('restart');
-const modal = document.querySelector('.modal');
-const scoreBoard = {
-    player: 0,
-    computer: 0
+const playerMove = document.querySelector(".player-pic");
+const botMove = document.querySelector(".bot-pic");
+
+document
+  .querySelector(".rock")
+  .addEventListener("click", function replaceimg(p) {
+    playerMove.src = "resources/images/rock.png";
+    p = "rock";
+  });
+
+document
+  .querySelector(".paper")
+  .addEventListener("click", function replaceimg(p) {
+    playerMove.src = "resources/images/paper.png";
+    p = "paper";
+  });
+
+document
+  .querySelector(".scissors")
+  .addEventListener("click", function replaceimg(p) {
+    playerMove.src = "resources/images/scissors.png";
+    p = "scissors";
+  });
+
+document
+  .querySelector(".lizard")
+  .addEventListener("click", function replaceimg(p) {
+    playerMove.src = "resources/images/lizard.png";
+    p = "lizard";
+  });
+
+document
+  .querySelector(".spock")
+  .addEventListener("click", function replaceimg(p) {
+    playerMove.src = "resources/images/spock.png";
+    p = "spock";
+  });
+
+
+console.log(p);
+
+var choiceArr = ["rock", "paper", "scissors", "lizard", "spock"];
+function botchoice() {
+   c = choiceArr[Math.floor(Math.random() * choiceArr.length)];
+  
 }
 
-// Play game
-function play(e) {
-    restart.style.display = 'inline-block';
-    const playerChoice = e.target.id;
-    const computerChoice = getComputerChoice();
-    const winner = getWinner(playerChoice, computerChoice);
-    showWinner(winner, computerChoice);
-}
-
-// Get Computers Choice
-function getComputerChoice() {
-    const rand = Math.random();
-    if(rand < 0.19) {
-        return 'rock';
-    } else if (rand <= 0.39) {
-        return 'paper';
-    } else if (rand <= 0.59) {
-        return 'scissors';
-    } else if (rand <= 0.79 ) {
-        return 'lizard';
-    } else {
-        return 'spock';
-    }
-}
-
-// Get game winner
-function getWinner(p, c) {
-    if(p === c){
-        return 'draw';
-    } //If the user chose rock...
-    else if (p === "rock") {
-        if (c === "scissors") {
-            return "player";
-        } else if (c === "paper") {
-            return "computer";
-        } else if (c === "lizard") {
-            return "player" ;
-        } else {
-            return "computer" ;
-        }
-    }
-    
-    //If the user chose paper...
-    else if (p === "paper") {
-        if (c === "scissors") {
-            return "computer";
-        } else if (c === "rock") {
-            return "player";
-        } else if (c === "lizard") {
-            return "computer";
-        } else {
-            return "computer";
-        }
-    }
-    
-    //If the user chose scissors...
-    else if (p === "scissors") {
-        if (c === "paper") {
-            return "player" ;
-        } else if (c === "rock") {
-            return "computer" ;
-        } else if (c === "lizard") {
-            return "player" ;
-        } else {
-            return "computer";
-        }
-    }
-    
-    //If the user chose lizard...
-    else if (p === "lizard") {
-        if (c === "scissors") {
-            return "player" ;
-        } else if (c === "rock") {
-            return "computer" ;
-        } else if (c === "paper") {
-            return "player";
-        } else {
-            return "player";
-        }
-    }
-    
-    //If the user chose spock...
-    else if (p === "spock") {
-        if (c === "scissors") {
-            return "player";
-        } else if (c === "rock") {
-            return "player";
-        } else if (c === "lizard") {
-            return "computer";
-        } else {
-            return "computer";
-        }
-    }
-}
-
-function showWinner(winner, computerChoice) {
-    if(winner === 'player') {
-        // Inc player score
-        scoreBoard.player++;
-        // Show modal result
-        result.innerHTML = `
-            <h1 class='text-win'>You Win!</h1>
-            <i class='fas fa-hand-${computerChoice} fa-5x'></i>
-            <p>Computer chose <strong>${computerChoice}<strong></p>
-    
-        `;
-    } else if(winner === 'computer') {
-        // Inc computer score
-        scoreBoard.computer++;
-        // Show modal result
-        result.innerHTML = `
-            <h1 class='text-lose'>You Lose!</h1>
-            <i class='fas fa-hand-${computerChoice} fa-5x'></i>
-            <p>Computer chose <strong>${computerChoice}<strong></p>
-    
-        `;
-    } else {
-        result.innerHTML = `
-            <h1>It's a draw!</h1>
-            <i class='fas fa-hand-${computerChoice} fa-5x'></i>
-            <p>Computer Chose <strong>${computerChoice}<strong></p>
-    
-        `;
-    } 
-    // Show score
-    score.innerHTML = `
-    <p>Player: ${scoreBoard.player}</p>
-    <p>Computer: ${scoreBoard.computer}</p>
-    `;
-
-    modal.style.display = 'block';
-} 
-
-
-// Restart Game
-function restartGame() {
-    scoreBoard.player = 0;
-    scoreBoard.computer = 0;
-    score.innerHTML = `
-    <p>Player: 0</p>
-    <p>Computer: 0</p>
-    `;
-}
-
-// Clear modal
-function clearModal(e) {
-    if(e.target == modal) {
-        modal.style.display = 'none';
-    }
-}
-
-// Event listeners
-choices.forEach(choice => choice.addEventListener('click', play));
-window.addEventListener('click', clearModal);
-restart.addEventListener('click', restartGame);
+console.log(c);
+document.querySelector(".lock").addEventListener("click", function () {
+  if (c === "rock") botMove.src = "resources/images/rock.png";
+  else if (c === "paper") botMove.src = "resources/images/paper.png";
+  else if (c === "scissors") botMove.src = "resources/images/scissors.png";
+  else if (c === "lizard") botMove.src = "resources/images/lizard.png";
+  else if (c === "spock") botMove.src = "resources/images/spock.png";
+});
