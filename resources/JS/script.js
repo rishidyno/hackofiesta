@@ -1,13 +1,19 @@
 "use strict";
-const playerScore = 0;
-const botScore = 0;
+let playerScore = 0;
+let botScore = 0;
+const playerScore_txt = document.querySelector(".player-score");
+const botScore_txt = document.querySelector(".bot-score");
 const rock_btn = document.querySelector(".rock");
 const paper_btn = document.querySelector(".paper");
 const scissors_btn = document.querySelector(".scissors");
 const lizard_btn = document.querySelector(".lizard");
 const spock_btn = document.querySelector(".spock");
 const mess = document.querySelector(".message");
-
+const playerImg = document.querySelector(".player-pic");
+const botImg = document.querySelector(".bot-pic");
+let round = 1;
+playerImg.src = "resources/images/user.png";
+botImg.src = "resources/images/bot.png";
 function getCompChoice() {
   const choices = ["r", "p", "s", "l", "o"];
   return choices[Math.floor(Math.random() * 5)];
@@ -21,76 +27,186 @@ function game(userChoice) {
   console.log(botChoice);
   switch (userChoice + botChoice) {
     case "rs":
+      playerImg.src = "resources/images/rock.png";
+      botImg.src = "resources/images/scissors.png";
       mess.textContent = "ROCK BEATS SCISSORS";
+      playerScore += 1;
+      playerScore_txt.textContent = playerScore;
       break;
 
     case "rl":
       mess.textContent = "ROCK BEATS LIZARD";
+      playerImg.src = "resources/images/rock.png";
+      botImg.src = "resources/images/lizard.png";
+      playerScore += 1;
+      playerScore_txt.textContent = playerScore;
       break;
     case "po":
+      playerImg.src = "resources/images/paper.png";
+      botImg.src = "resources/images/spock.png";
       mess.textContent = "PAPER BEATS SPOCK";
+      playerScore += 1;
+      playerScore_txt.textContent = playerScore;
       break;
     case "pr":
+      playerImg.src = "resources/images/paper.png";
+      botImg.src = "resources/images/rock.png";
       mess.textContent = "PAPER BEATS ROCK";
-       break;
+      playerScore += 1;
+      playerScore_txt.textContent = playerScore;
+      break;
     case "sl":
+      playerImg.src = "resources/images/scissors.png";
+      botImg.src = "resources/images/lizard.png";
       mess.textContent = "SCISSORS BEATS LIZARD";
-       break;
+      playerScore += 1;
+      playerScore_txt.textContent = playerScore;
+      break;
     case "sp":
+      playerImg.src = "resources/images/scissors.png";
+      botImg.src = "resources/images/paper.png";
       mess.textContent = "SCISSORS BEATS PAPER";
-       break;
+      playerScore += 1;
+      playerScore_txt.textContent = playerScore;
+      break;
     case "os":
+      playerImg.src = "resources/images/spock.png";
+      botImg.src = "resources/images/scissors.png";
       mess.textContent = "SPOCK BEATS SCISSORS";
-       break;
+      playerScore += 1;
+      playerScore_txt.textContent = playerScore;
+      break;
     case "or":
+      playerImg.src = "resources/images/spock.png";
+      botImg.src = "resources/images/rock.png";
       mess.textContent = "SPOCK BEATS ROCK";
-       break;
-    case "ls":
-      mess.textContent = "LIZARD BEATS SCISSORS";
-       break;
+      playerScore += 1;
+      playerScore_txt.textContent = playerScore;
+      break;
+    case "lo":
+      playerImg.src = "resources/images/lizard.png";
+      botImg.src = "resources/images/spock.png";
+      mess.textContent = "LIZARD BEATS SPOCK";
+      playerScore += 1;
+      playerScore_txt.textContent = playerScore;
+      break;
     case "lp":
+      playerImg.src = "resources/images/lizard.png";
+      botImg.src = "resources/images/paper.png";
       mess.textContent = "LIZARD BEATS PAPER";
-       
-      console.log("USER WINS");
+      playerScore += 1;
+      playerScore_txt.textContent = playerScore;
+
+      // console.log("USER WINS");
       break;
     case "sr":
+      playerImg.src = "resources/images/scissors.png";
+      botImg.src = "resources/images/rock.png";
       mess.textContent = "ROCK BEATS SCISSORS";
-       break;
+      botScore += 1;
+      botScore_txt.textContent = botScore;
+      break;
     case "lr":
+      playerImg.src = "resources/images/lizard.png";
+      botImg.src = "resources/images/rock.png";
       mess.textContent = "ROCK BEATS LIZARD";
-       break;
+      botScore += 1;
+      botScore_txt.textContent = botScore;
+      break;
     case "op":
+      playerImg.src = "resources/images/spock.png";
+      botImg.src = "resources/images/paper.png";
       mess.textContent = "PAPER BEATS SPOCK";
-       break;
+      botScore += 1;
+      botScore_txt.textContent = botScore;
+      break;
     case "rp":
+      playerImg.src = "resources/images/rock.png";
+      botImg.src = "resources/images/paper.png";
       mess.textContent = "PAPER BEATS ROCK";
-       break;
+      botScore += 1;
+      botScore_txt.textContent = botScore;
+      break;
     case "ls":
+      playerImg.src = "resources/images/lizard.png";
+      botImg.src = "resources/images/scissors.png";
       mess.textContent = "SCISSORS BEATS LIZARD";
-       break;
+      botScore += 1;
+      botScore_txt.textContent = botScore;
+      break;
     case "ps":
+      playerImg.src = "resources/images/paper.png";
+      botImg.src = "resources/images/scissors.png";
       mess.textContent = "SCISSORS BEATS PAPER";
-       break;
+      botScore += 1;
+      botScore_txt.textContent = botScore;
+      break;
     case "so":
+      playerImg.src = "resources/images/scissors.png";
+      botImg.src = "resources/images/spock.png";
       mess.textContent = "SPOCK BEATS SCISSORS";
-       break;
+      botScore += 1;
+      botScore_txt.textContent = botScore;
+      break;
     case "ro":
+      playerImg.src = "resources/images/rock.png";
+      botImg.src = "resources/images/spock.png";
       mess.textContent = "SPOCK BEATS ROCK";
-       break;
+      botScore += 1;
+      botScore_txt.textContent = botScore;
+      break;
     case "sl":
+      playerImg.src = "resources/images/scissors.png";
+      botImg.src = "resources/images/lizard.png";
       mess.textContent = "LIZARD BEATS SCISSORS";
-       break;
+      botScore += 1;
+      botScore_txt.textContent = botScore;
+      break;
     case "pl":
+      playerImg.src = "resources/images/paper.png";
+      botImg.src = "resources/images/lizard.png";
       mess.textContent = "LIZARD BEATS PAPER";
-      
-      console.log("COMPUTER WINS");
+      botScore += 1;
+      botScore_txt.textContent = botScore;
+
+      // console.log("COMPUTER WINS");
+      break;
+
+    case "rr":
+      mess.textContent = "DRAW";
+      botImg.src = playerImg.src = "resources/images/rock.png";
+      break;
+    case "pp":
+      mess.textContent = "DRAW";
+      botImg.src = playerImg.src = "resources/images/paper.png";
+      break;
+    case "ss":
+      mess.textContent = "DRAW";
+      botImg.src = playerImg.src = "resources/images/scissors.png";
+      break;
+    case "oo":
+      mess.textContent = "DRAW";
+      botImg.src = playerImg.src = "resources/images/spock.png";
+      break;
+    case "ll":
+      mess.textContent = "DRAW";
+      botImg.src = playerImg.src = "resources/images/lizard.png";
       break;
   }
+  if (mess.textContent !== "DRAW") {
+    round += 1;
+    document.querySelector(".timer").textContent = round;
+  }
+  document.querySelector(".right").setAttribute("style", "top: 30%;");
 }
 
+function pause(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
 // game("r")
 
 function main() {
+  // while(round===3){
   rock_btn.addEventListener("click", function () {
     game("r");
     // console.log("r");
@@ -109,4 +225,6 @@ function main() {
   });
 }
 
+// pause(10000);
+// console.log("hello world");
 main();
