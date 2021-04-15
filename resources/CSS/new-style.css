@@ -135,7 +135,7 @@ h1 {
   background: #eee;
   color: #333;
   font-size: 2rem;
-  padding: 3rem 3rem;
+  padding: 3rem 2rem;
   text-align: center;
   position: absolute;
   bottom: 47%;
@@ -261,3 +261,28 @@ button:hover {
   border-radius: 5%;
 }
 .modalRestart:hover{transform:scale(1)}
+
+
+[type=radio] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+[type=radio] + img {
+  align-items: center;
+  cursor: pointer;
+  /* transform: scale(); */
+  padding:0;
+  margin: 0;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked +img {
+  padding:1rem;
+  /* outline: 2px solid */
+  border: 10px solid  white;
+  border-radius: 50%;
+}

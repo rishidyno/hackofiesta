@@ -12,6 +12,7 @@ const mess = document.querySelector(".message");
 const playerImg = document.querySelector(".player-pic");
 const botImg = document.querySelector(".bot-pic");
 let round = 1;
+let max=1;
 playerImg.src = "resources/images/user.png";
 botImg.src = "resources/images/bot.png";
 function getCompChoice() {
@@ -19,10 +20,29 @@ function getCompChoice() {
   return choices[Math.floor(Math.random() * 5)];
 }
 
+$(document).ready(function () {
+  $("#loadModal").modal("show");
+});
+
+
+document.getElementById("gotit").onclick = function () {
+  var radios = document.getElementsByName("test");
+  for (var radio of radios) {
+    if (radio.checked) {
+      max=radio.value;
+    }
+  }
+};  
+
+
+// if (document.getElementById("#roundno").hasAttribute("checked"))
+//   round = document.getElementById("#roundno").value;
+// console.log(round);
+
 // console.log(getCompChoice());
 
 function game(userChoice) {
-  if (round <= 3) {
+  if (round <= max) {
     const botChoice = getCompChoice();
     // console.log(userChoice);
     // console.log(botChoice);
@@ -197,15 +217,28 @@ function game(userChoice) {
     if (mess.textContent != "DRAW") round += 1;
     document.querySelector(".timer").textContent = `ROUND ${round}`;
   }
+  if (playerScore === Math.floor(max / 2) + 1) {
+    document.querySelector(".modal-body").textContent = "YOU WIN";
+    document
+      .querySelector(".modal-body")
+      .setAttribute("style", "color:rgb(25, 235, 43);;");
+    $("#secModal").modal();
+  } else if (botScore === Math.floor(max / 2) + 1) {
+    document.querySelector(".modal-body").textContent = "YOU LOSE";
+    document
+      .querySelector(".modal-body")
+      .setAttribute("style", "color:rgb(240, 6, 6);;");
+    $("#secModal").modal();
+  }
 
-  if (round === 3 + 1) {
+  if (round > max) {
     document.querySelector(".timer").textContent = "GAME OVER";
-    if (playerScore === 2) {
+    if (playerScore === Math.floor(max/2)+1) {
       document.querySelector(".modal-body").textContent = "YOU WIN";
       document
         .querySelector(".modal-body")
         .setAttribute("style", "color:rgb(25, 235, 43);;");
-    } else if (botScore === 2) {
+    } else if (botScore === Math.floor(max / 2) + 1) {
       document.querySelector(".modal-body").textContent = "YOU LOSE";
       document
         .querySelector(".modal-body")

@@ -30,20 +30,22 @@
     <header>
       <h1>Select Number of Rounds</h1>
     </header>
-    <main>
-      <label>
-        <input type="radio" name="test" value="1" />
+    <main id="radiox ">
+      <div class="row">
+      <label class="col span">
+        <input type="radio" name="test" value="1" id="roundno" />
         <img src="resources/images/one-finger-icon-18-256.png" />
       </label>
 
       <label>
-        <input type="radio" name="test" value="3" checked />
+        <input type="radio" name="test" value="3" id="roundno" />
         <img src="resources/images/three-fingers-icon-18-256.png" />
       </label>
       <label>
-        <input type="radio" name="test" value="5" />
+        <input type="radio" name="test" value="5" id="roundno" />
         <img src="resources/images/whole-hand-icon-18-256.png " />
       </label>
+    </div>
       <!-- <button class="col span-1-of-3">
         <img src="resources/images/one-finger-icon-18-256.png" alt="spock" />
       </button>
@@ -60,10 +62,12 @@
         ><button class="btn"><span>ENTER</span></button></a
       >
     </section>
-    <!-- <script src="resources/JS/script.js"> -->
     <script>
-    
-    
+      let inputs = radiox.getElementsById("#roundno");
+      for (let x in inputs) {
+        if (x.hasAttribute("checked")) 
+        console.log(x.value);
+      }
     </script>
   </body>
 </html>

@@ -26,7 +26,6 @@ body {
   font-family: "Press Start 2P", sans-serif;
   color: #eee;
   background: black;
-  
 }
 
 /* reusable */
@@ -60,7 +59,6 @@ main {
   width: 100%;
 }
 
-
 /* ELEMENTS STYLE */
 h1 {
   font-size: 4.2rem;
@@ -71,8 +69,6 @@ h1 {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-
 
 .btn {
   border: none;
@@ -125,31 +121,11 @@ li {
   font-size: 3rem;
 }
 
-
 /* HIDE RADIO */
-[type=radio] { 
+
+
+.roundstart {
   position: absolute;
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-
-[type=radio] + img {
-  cursor: pointer;
-}
-
-/* CHECKED STYLES */
-[type=radio]:checked +img {
-  padding:2rem;
-  /* outline: 2px solid */
-  border: 10px solid  white;
-  border-radius: 50%;
-}
-
-.roundstart{
-  position: absolute;
-  left:43%;
-  bottom:8%;
-  
+  left: 43%;
+  bottom: 8%;
 }
