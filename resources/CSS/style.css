@@ -70,6 +70,11 @@ h1 {
   transform: translate(-50%, -50%);
 }
 
+
+ul {
+    list-style-type: none;
+}
+
 .btn {
   border: none;
   background-color: rgb(243, 240, 240);
